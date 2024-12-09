@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct PeritonixApp: App {
+struct test1App: App {
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {

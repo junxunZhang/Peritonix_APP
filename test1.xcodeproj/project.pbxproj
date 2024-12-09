@@ -24,8 +24,8 @@
 		C60628162CA17BE3001DB3EE /* CMSampleBuffer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60628152CA17BE3001DB3EE /* CMSampleBuffer+Extension.swift */; };
 		C60628182CA17BF5001DB3EE /* CIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60628172CA17BF5001DB3EE /* CIImage+Extension.swift */; };
 		C606281A2CA17C46001DB3EE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60628192CA17C46001DB3EE /* ViewModel.swift */; };
-		C65C40FA2CF878AF00988400 /* secondview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65C40F92CF878AF00988400 /* secondview.swift */; };
-		C65C40FC2CF880F400988400 /* thirdview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65C40FB2CF880F400988400 /* thirdview.swift */; };
+		C65C40FA2CF878AF00988400 /* CollectImageview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65C40F92CF878AF00988400 /* CollectImageview.swift */; };
+		C65C40FC2CF880F400988400 /* PredictView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65C40FB2CF880F400988400 /* PredictView.swift */; };
 		C65C41012CF8C6B300988400 /* model.tflite in Resources */ = {isa = PBXBuildFile; fileRef = C65C41002CF8C6B300988400 /* model.tflite */; };
 /* End PBXBuildFile section */
 
@@ -70,8 +70,8 @@
 		C60628152CA17BE3001DB3EE /* CMSampleBuffer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMSampleBuffer+Extension.swift"; sourceTree = "<group>"; };
 		C60628172CA17BF5001DB3EE /* CIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extension.swift"; sourceTree = "<group>"; };
 		C60628192CA17C46001DB3EE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		C65C40F92CF878AF00988400 /* secondview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = secondview.swift; path = ../secondview.swift; sourceTree = "<group>"; };
-		C65C40FB2CF880F400988400 /* thirdview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thirdview.swift; sourceTree = "<group>"; };
+		C65C40F92CF878AF00988400 /* CollectImageview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectImageview.swift; path = ../CollectImageview.swift; sourceTree = "<group>"; };
+		C65C40FB2CF880F400988400 /* PredictView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictView.swift; sourceTree = "<group>"; };
 		C65C41002CF8C6B300988400 /* model.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = model.tflite; sourceTree = "<group>"; };
 		EB03DB66CFA91BBDAA8D104C /* Pods_test1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_test1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE70200205C0B4D52029A2B4 /* Pods-test1-test1UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test1-test1UITests.debug.xcconfig"; path = "Target Support Files/Pods-test1-test1UITests/Pods-test1-test1UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -147,8 +147,8 @@
 			children = (
 				C60627E22CA179DB001DB3EE /* test1App.swift */,
 				C60627E42CA179DB001DB3EE /* ContentView.swift */,
-				C65C40F92CF878AF00988400 /* secondview.swift */,
-				C65C40FB2CF880F400988400 /* thirdview.swift */,
+				C65C40F92CF878AF00988400 /* CollectImageview.swift */,
+				C65C40FB2CF880F400988400 /* PredictView.swift */,
 				C60628112CA17BA7001DB3EE /* CameraView.swift */,
 				C60628132CA17BCC001DB3EE /* CameraManager.swift */,
 				C60628152CA17BE3001DB3EE /* CMSampleBuffer+Extension.swift */,
@@ -444,8 +444,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C65C40FC2CF880F400988400 /* thirdview.swift in Sources */,
-				C65C40FA2CF878AF00988400 /* secondview.swift in Sources */,
+				C65C40FC2CF880F400988400 /* PredictView.swift in Sources */,
+				C65C40FA2CF878AF00988400 /* CollectImageview.swift in Sources */,
 				C60627EC2CA179DC001DB3EE /* Persistence.swift in Sources */,
 				C606281A2CA17C46001DB3EE /* ViewModel.swift in Sources */,
 				C60628182CA17BF5001DB3EE /* CIImage+Extension.swift in Sources */,

@@ -8,26 +8,44 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        NavigationView{
-            VStack (spacing: 20) {
-                NavigationLink(destination: secondview()) {
+        NavigationView { // Add NavigationView to enable navigation
+            TabView() {
+                ZStack {
+                    Image("appdesktop")
+                        .resizable()
+                        .scaledToFill()
+                        .edgesIgnoringSafeArea(.all)
                     
-                    Text("Collect image").frame(width:300, height:100, alignment: .center).background(Color.white).foregroundColor(Color.black).cornerRadius(20).font(.title).buttonStyle(.bordered)
-                }
-                NavigationLink(destination: thirdview()) {
+                    VStack(spacing: 50) {
+                        NavigationLink(destination: CollectImageview()) { // Corrected destination
+                            Text("Collect image")
+                                .frame(width: 300, height: 100, alignment: .center)
+                                .background(Color.white)
+                                .foregroundColor(Color.black)
+                                .cornerRadius(20)
+                                .font(.title)
+                                .buttonStyle(.bordered)
+                        }
+                        NavigationLink(destination: PredictView()) { // Corrected destination
+                            Text("Predict")
+                                .frame(width: 300, height: 100, alignment: .center)
+                                .background(Color.gray)
+                                .foregroundColor(Color.black)
+                                .cornerRadius(20)
+                                .font(.title)
+                                .buttonStyle(.bordered)
+                        }
+                    }
                     
-                    Text("Predict").frame(width:200, height:100, alignment: .center).background(Color.gray).foregroundColor(Color.black).cornerRadius(20).font(.title).buttonStyle(.bordered)
                 }
-                
             }
         }
     }
 }
-    
-    
 
-struct ContentView_Previews: PreviewProvider {
+struct Content_view: PreviewProvider {
     static var previews: some View{
         ContentView()
     }

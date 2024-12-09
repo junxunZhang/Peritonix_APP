@@ -16,7 +16,7 @@ struct Window: Shape {
     }
 }
 
-struct secondview: View {
+struct CollectImageview: View {
     
     @State private var viewModel = ViewModel()
     @State private var isImageFullScreen = false  // Track whether the image is full-screen
@@ -24,7 +24,6 @@ struct secondview: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottomLeading) {
-                
                 VStack {
                     ZStack {
                         // Display the camera feed in the background
@@ -97,6 +96,6 @@ struct FullScreenImageView: View {
 
 struct secondview_Previews: PreviewProvider {
     static var previews: some View{
-        secondview()
+        CollectImageview()
     }
 }

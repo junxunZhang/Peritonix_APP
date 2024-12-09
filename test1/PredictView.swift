@@ -10,14 +10,13 @@ struct Window2: Shape {
     
     func path(in rect: CGRect) -> Path {
         var path = Rectangle().path(in: rect)
-
         // Add the transparent rectangle at the desired origin and size
         path.addRect(CGRect(origin: origin, size: size))
         return path
     }
 }
 
-struct thirdview: View {
+struct PredictView: View {
     @State private var viewModel = ViewModel()
     @State private var navigateToImage = false // Track navigation state
 
@@ -51,32 +50,32 @@ struct thirdview: View {
                         
                         if viewModel.lastCapturedImage != nil {
                             navigateToImage = true
-                            
                         }
                     }) {
-                        Text("Predicted")
+                        Text("Predict")
                             .frame(width: 100, height: 50, alignment: .center)
                             .background(Color.white)
                             .foregroundColor(Color.black)
                             .buttonStyle(.bordered)
+                            .cornerRadius(20)
                     }
                     .padding()
                 }
             }
             .navigationDestination(isPresented: $navigateToImage) {
-                            // Navigate to FullScreenImageView2 when navigateToImage is true
-                            FullScreenImageView2(image: viewModel.lastCapturedImage ?? UIImage())
-                        }
-                        .navigationBarHidden(true) // Hide the navigation bar
+                // Navigate to FullScreenImageView2 when navigateToImage is true
+                FullScreenImageView2(image: viewModel.lastCapturedImage ?? UIImage())
+            }
+            .navigationBarHidden(true) // Hide the navigation bar
         }
     }
 }
 
 // Full-screen image view to display captured photo
-
 struct FullScreenImageView2: View {
     var image: UIImage
     @State private var prediction: String? = nil
+    @State private var confidenceScores: [Float] = [] // Store confidence scores
     private var interpreter: Interpreter?
 
     init(image: UIImage) {
@@ -107,9 +106,8 @@ struct FullScreenImageView2: View {
 
         // Crop the image into overlapping patches
         let patches = cropImageIntoOverlappingPatches(image: image, imageSize: imageSize, patchSize: patchSize)
-        var confidenceScores: [Float] = []
+        var scores: [Float] = []
 
-        // Process each patch and predict
         for patch in patches {
             guard let tensorData = preprocessImage(patch) else {
                 print("Error: Could not preprocess patch.")
@@ -129,35 +127,30 @@ struct FullScreenImageView2: View {
 
                 // Extract confidence score for "infected"
                 if outputData.count == 2 {
-                    confidenceScores.append(outputData[1]) // Confidence for "infected"
+                    scores.append(outputData[1]) // Confidence for "infected"
                 }
             } catch {
                 print("Error during inference: \(error.localizedDescription)")
             }
         }
 
-        // Average the confidence scores to calculate the final result
-        let averageConfidence = confidenceScores.reduce(0, +) / Float(confidenceScores.count)
-        let finalPrediction = averageConfidence > 0.5 ? "Infected" : "Not Infected"
-
-        // Update the prediction for UI
+        // Update confidenceScores and calculate final prediction
         DispatchQueue.main.async {
-            self.prediction = finalPrediction
+            confidenceScores = scores
+            let averageConfidence = scores.reduce(0, +) / Float(scores.count)
+            prediction = averageConfidence > 0.5 ? "Infected" : "Not Infected"
         }
     }
 
     // Crop the image into patches of size 255x255
-    // Function to crop the image into 35 overlapping patches of 255x255
     func cropImageIntoOverlappingPatches(image: UIImage, imageSize: CGSize, patchSize: CGSize) -> [UIImage] {
         var patches: [UIImage] = []
         
-        // Calculate the steps for overlapping patches
-        let stepX = (Int(imageSize.width) - Int(patchSize.width)) / 4  // 4 steps in the width direction
-        let stepY = (Int(imageSize.height) - Int(patchSize.height)) / 6 // 6 steps in the height direction
+        let stepX = (Int(imageSize.width) - Int(patchSize.width)) / 4
+        let stepY = (Int(imageSize.height) - Int(patchSize.height)) / 6
         
-        // Loop to crop the patches
-        for y in stride(from: 0, through: stepY * 6, by: stepY) { // 6 steps in height
-            for x in stride(from: 0, through: stepX * 4, by: stepX) { // 4 steps in width
+        for y in stride(from: 0, through: stepY * 6, by: stepY) {
+            for x in stride(from: 0, through: stepX * 4, by: stepX) {
                 let origin = CGPoint(x: CGFloat(x), y: CGFloat(y))
                 let rect = CGRect(origin: origin, size: patchSize)
                 
@@ -168,7 +161,6 @@ struct FullScreenImageView2: View {
         }
         return patches
     }
-
 
     // Preprocess a cropped patch for the TensorFlow Lite model
     func preprocessImage(_ image: UIImage) -> Data? {
@@ -181,10 +173,8 @@ struct FullScreenImageView2: View {
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGImageAlphaInfo.noneSkipLast.rawValue
 
-        var pixelData = [Float](repeating: 0, count: width * height * 3) // RGB normalized data
-
         guard let context = CGContext(
-            data: &pixelData,
+            data: nil,
             width: width,
             height: height,
             bitsPerComponent: 8,
@@ -195,8 +185,22 @@ struct FullScreenImageView2: View {
 
         context.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
 
-        // Normalize pixel values to range [0, 1]
-        let normalizedData = pixelData.map { Float($0) / 255.0 }
+        guard let pixelData = context.data else { return nil }
+
+        var normalizedData = [Float](repeating: 0, count: width * height * 3)
+        for y in 0..<height {
+            for x in 0..<width {
+                let pixelIndex = (y * width + x) * bytesPerPixel
+                let red = Float(pixelData.load(fromByteOffset: pixelIndex, as: UInt8.self)) / 255.0
+                let green = Float(pixelData.load(fromByteOffset: pixelIndex + 1, as: UInt8.self)) / 255.0
+                let blue = Float(pixelData.load(fromByteOffset: pixelIndex + 2, as: UInt8.self)) / 255.0
+
+                let normalizedIndex = (y * width + x) * 3
+                normalizedData[normalizedIndex] = red
+                normalizedData[normalizedIndex + 1] = green
+                normalizedData[normalizedIndex + 2] = blue
+            }
+        }
         return normalizedData.withUnsafeBytes { bufferPointer in
             Data(bufferPointer)
         }
@@ -204,12 +208,11 @@ struct FullScreenImageView2: View {
 
     var body: some View {
         ZStack {
-            Color.black.edgesIgnoringSafeArea(.all)  // Full screen background
+            Color.black.edgesIgnoringSafeArea(.all)
             
             VStack(spacing: 10) {
-                // Show prediction result
-                if prediction != nil {
-                    Text("Prediction: \(prediction!)")
+                if let prediction = prediction {
+                    Text("Final Prediction: \(prediction)")
                         .font(.title)
                         .bold()
                         .foregroundColor(.red)
@@ -220,7 +223,20 @@ struct FullScreenImageView2: View {
                         .foregroundColor(.yellow)
                 }
                 
-                // Display the image
+                if !confidenceScores.isEmpty {
+                    VStack(alignment: .leading) {
+                        Text("Confidence Scores:")
+                            .font(.headline)
+                            .foregroundColor(.white)
+
+                        ForEach(Array(confidenceScores.enumerated()), id: \.offset) { index, score in
+                            Text("Patch \(index + 1): \(String(format: "%.2f", score))")
+                                .foregroundColor(.white)
+                        }
+                    }
+                    .padding()
+                }
+
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
@@ -236,7 +252,6 @@ struct FullScreenImageView2: View {
 }
 
 extension Data {
-    // Convert Data to Array of Floats for TensorFlow Lite output
     func toArray<T>(type: T.Type) -> [T] {
         return self.withUnsafeBytes {
             Array($0.bindMemory(to: T.self))
@@ -244,8 +259,8 @@ extension Data {
     }
 }
 
-struct thirdview_Previews: PreviewProvider {
-    static var previews: some View{
-        thirdview()
+struct PredictView_Previews: PreviewProvider {
+    static var previews: some View {
+        PredictView()
     }
 }
