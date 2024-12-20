@@ -20,13 +20,19 @@
 		C60628032CA179DC001DB3EE /* test1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60628022CA179DC001DB3EE /* test1UITests.swift */; };
 		C60628052CA179DC001DB3EE /* test1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60628042CA179DC001DB3EE /* test1UITestsLaunchTests.swift */; };
 		C60628122CA17BA7001DB3EE /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60628112CA17BA7001DB3EE /* CameraView.swift */; };
-		C60628142CA17BCC001DB3EE /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60628132CA17BCC001DB3EE /* CameraManager.swift */; };
 		C60628162CA17BE3001DB3EE /* CMSampleBuffer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60628152CA17BE3001DB3EE /* CMSampleBuffer+Extension.swift */; };
 		C60628182CA17BF5001DB3EE /* CIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60628172CA17BF5001DB3EE /* CIImage+Extension.swift */; };
 		C606281A2CA17C46001DB3EE /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60628192CA17C46001DB3EE /* ViewModel.swift */; };
 		C65C40FA2CF878AF00988400 /* CollectImageview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65C40F92CF878AF00988400 /* CollectImageview.swift */; };
 		C65C40FC2CF880F400988400 /* PredictView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65C40FB2CF880F400988400 /* PredictView.swift */; };
 		C65C41012CF8C6B300988400 /* model.tflite in Resources */ = {isa = PBXBuildFile; fileRef = C65C41002CF8C6B300988400 /* model.tflite */; };
+		C6BD91722D0AE91300CD511C /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD91712D0AE91300CD511C /* PreviewView.swift */; };
+		C6BD91742D0AE92700CD511C /* CameraFeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD91732D0AE92700CD511C /* CameraFeedManager.swift */; };
+		C6BD91852D13270500CD511C /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD91842D13270500CD511C /* CameraManager.swift */; };
+		C6BD91872D1330FF00CD511C /* PreviewViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD91862D1330FF00CD511C /* PreviewViewWrapper.swift */; };
+		C6BD91892D13359300CD511C /* CameraFeedHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD91882D13359300CD511C /* CameraFeedHandler.swift */; };
+		C6BD918B2D13443A00CD511C /* PredictionResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD918A2D13443A00CD511C /* PredictionResultView.swift */; };
+		C6BD918D2D13447A00CD511C /* CameraFeedUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD918C2D13447A00CD511C /* CameraFeedUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,13 +72,19 @@
 		C60628022CA179DC001DB3EE /* test1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test1UITests.swift; sourceTree = "<group>"; };
 		C60628042CA179DC001DB3EE /* test1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test1UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C60628112CA17BA7001DB3EE /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		C60628132CA17BCC001DB3EE /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		C60628152CA17BE3001DB3EE /* CMSampleBuffer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMSampleBuffer+Extension.swift"; sourceTree = "<group>"; };
 		C60628172CA17BF5001DB3EE /* CIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extension.swift"; sourceTree = "<group>"; };
 		C60628192CA17C46001DB3EE /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		C65C40F92CF878AF00988400 /* CollectImageview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectImageview.swift; path = ../CollectImageview.swift; sourceTree = "<group>"; };
+		C65C40F92CF878AF00988400 /* CollectImageview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectImageview.swift; sourceTree = "<group>"; };
 		C65C40FB2CF880F400988400 /* PredictView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictView.swift; sourceTree = "<group>"; };
 		C65C41002CF8C6B300988400 /* model.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = model.tflite; sourceTree = "<group>"; };
+		C6BD91712D0AE91300CD511C /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		C6BD91732D0AE92700CD511C /* CameraFeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFeedManager.swift; sourceTree = "<group>"; };
+		C6BD91842D13270500CD511C /* CameraManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		C6BD91862D1330FF00CD511C /* PreviewViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewWrapper.swift; sourceTree = "<group>"; };
+		C6BD91882D13359300CD511C /* CameraFeedHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFeedHandler.swift; sourceTree = "<group>"; };
+		C6BD918A2D13443A00CD511C /* PredictionResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionResultView.swift; sourceTree = "<group>"; };
+		C6BD918C2D13447A00CD511C /* CameraFeedUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFeedUIView.swift; sourceTree = "<group>"; };
 		EB03DB66CFA91BBDAA8D104C /* Pods_test1Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_test1Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE70200205C0B4D52029A2B4 /* Pods-test1-test1UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test1-test1UITests.debug.xcconfig"; path = "Target Support Files/Pods-test1-test1UITests/Pods-test1-test1UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F6482400C23AB4B69900FB3F /* Pods-test1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test1Tests.debug.xcconfig"; path = "Target Support Files/Pods-test1Tests/Pods-test1Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -122,7 +134,6 @@
 		C60627D62CA179DB001DB3EE = {
 			isa = PBXGroup;
 			children = (
-				C65C40FF2CF8C5EB00988400 /* New Group */,
 				C60627E12CA179DB001DB3EE /* test1 */,
 				C60627F72CA179DC001DB3EE /* test1Tests */,
 				C60628012CA179DC001DB3EE /* test1UITests */,
@@ -145,16 +156,12 @@
 		C60627E12CA179DB001DB3EE /* test1 */ = {
 			isa = PBXGroup;
 			children = (
+				C65C40FF2CF8C5EB00988400 /* TFlite */,
+				C6BD91702D0AE8EB00CD511C /* PredictedCameraFeed */,
+				C6BD916B2D0AE89C00CD511C /* CollectDataCamera */,
 				C60627E22CA179DB001DB3EE /* test1App.swift */,
 				C60627E42CA179DB001DB3EE /* ContentView.swift */,
-				C65C40F92CF878AF00988400 /* CollectImageview.swift */,
-				C65C40FB2CF880F400988400 /* PredictView.swift */,
-				C60628112CA17BA7001DB3EE /* CameraView.swift */,
-				C60628132CA17BCC001DB3EE /* CameraManager.swift */,
-				C60628152CA17BE3001DB3EE /* CMSampleBuffer+Extension.swift */,
-				C60628172CA17BF5001DB3EE /* CIImage+Extension.swift */,
 				C60627EB2CA179DC001DB3EE /* Persistence.swift */,
-				C60628192CA17C46001DB3EE /* ViewModel.swift */,
 				C60627E62CA179DC001DB3EE /* Assets.xcassets */,
 				C60627ED2CA179DC001DB3EE /* test1.xcdatamodeld */,
 				C60627E82CA179DC001DB3EE /* Preview Content */,
@@ -187,12 +194,39 @@
 			path = test1UITests;
 			sourceTree = "<group>";
 		};
-		C65C40FF2CF8C5EB00988400 /* New Group */ = {
+		C65C40FF2CF8C5EB00988400 /* TFlite */ = {
 			isa = PBXGroup;
 			children = (
 				C65C41002CF8C6B300988400 /* model.tflite */,
 			);
-			path = "New Group";
+			path = TFlite;
+			sourceTree = "<group>";
+		};
+		C6BD916B2D0AE89C00CD511C /* CollectDataCamera */ = {
+			isa = PBXGroup;
+			children = (
+				C65C40F92CF878AF00988400 /* CollectImageview.swift */,
+				C60628192CA17C46001DB3EE /* ViewModel.swift */,
+				C6BD91842D13270500CD511C /* CameraManager.swift */,
+				C60628112CA17BA7001DB3EE /* CameraView.swift */,
+				C60628152CA17BE3001DB3EE /* CMSampleBuffer+Extension.swift */,
+				C60628172CA17BF5001DB3EE /* CIImage+Extension.swift */,
+			);
+			path = CollectDataCamera;
+			sourceTree = "<group>";
+		};
+		C6BD91702D0AE8EB00CD511C /* PredictedCameraFeed */ = {
+			isa = PBXGroup;
+			children = (
+				C6BD91712D0AE91300CD511C /* PreviewView.swift */,
+				C6BD91862D1330FF00CD511C /* PreviewViewWrapper.swift */,
+				C6BD91882D13359300CD511C /* CameraFeedHandler.swift */,
+				C65C40FB2CF880F400988400 /* PredictView.swift */,
+				C6BD918C2D13447A00CD511C /* CameraFeedUIView.swift */,
+				C6BD91732D0AE92700CD511C /* CameraFeedManager.swift */,
+				C6BD918A2D13443A00CD511C /* PredictionResultView.swift */,
+			);
+			path = PredictedCameraFeed;
 			sourceTree = "<group>";
 		};
 		EAEC24313296A45F7B0A42AB /* Frameworks */ = {
@@ -444,16 +478,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6BD918B2D13443A00CD511C /* PredictionResultView.swift in Sources */,
 				C65C40FC2CF880F400988400 /* PredictView.swift in Sources */,
+				C6BD91852D13270500CD511C /* CameraManager.swift in Sources */,
 				C65C40FA2CF878AF00988400 /* CollectImageview.swift in Sources */,
 				C60627EC2CA179DC001DB3EE /* Persistence.swift in Sources */,
 				C606281A2CA17C46001DB3EE /* ViewModel.swift in Sources */,
 				C60628182CA17BF5001DB3EE /* CIImage+Extension.swift in Sources */,
 				C60627E52CA179DB001DB3EE /* ContentView.swift in Sources */,
+				C6BD918D2D13447A00CD511C /* CameraFeedUIView.swift in Sources */,
+				C6BD91742D0AE92700CD511C /* CameraFeedManager.swift in Sources */,
 				C60627E32CA179DB001DB3EE /* test1App.swift in Sources */,
+				C6BD91892D13359300CD511C /* CameraFeedHandler.swift in Sources */,
+				C6BD91722D0AE91300CD511C /* PreviewView.swift in Sources */,
 				C60628122CA17BA7001DB3EE /* CameraView.swift in Sources */,
+				C6BD91872D1330FF00CD511C /* PreviewViewWrapper.swift in Sources */,
 				C60628162CA17BE3001DB3EE /* CMSampleBuffer+Extension.swift in Sources */,
-				C60628142CA17BCC001DB3EE /* CameraManager.swift in Sources */,
 				C60627EF2CA179DC001DB3EE /* test1.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,7 +583,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -600,7 +640,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -629,6 +669,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -661,6 +702,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
